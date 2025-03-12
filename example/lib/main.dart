@@ -20,7 +20,7 @@ class _MyHomepageState extends State<MyHomepage> {
   void initState() {
     super.initState();
     Future.microtask(() async {
-      _qiscusSDK = await QiscusSDK.withAppId('sdksample');
+      _qiscusSDK = await QiscusSDK.withCustomServer(appId, baseUrl: 'https://api.qiscus.com');
       var account =
           await _qiscusSDK!.setUser(userId: 'guest-1001', userKey: 'passkey');
       var room = await _qiscusSDK!.chatUser(userId: 'guest-2002');
